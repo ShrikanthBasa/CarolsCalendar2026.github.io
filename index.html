@@ -241,19 +241,19 @@
             font-weight: 700;
         }
 
-        .event.work {
+        .event.school {
             background: #dbeafe;
             color: #1e40af;
             border-color: #2563eb;
         }
 
-        .event.meeting {
+        .event.orphanage {
             background: #f3e8ff;
             color: #6b21a8;
             border-color: #9333ea;
         }
 
-        .event.personal {
+        .event.office {
             background: #dcfce7;
             color: #166534;
             border-color: #16a34a;
@@ -413,6 +413,40 @@
             cursor: not-allowed;
         }
 
+        /* MOBILE MONTH LIST: readable event titles instead of compressed calendar cells */
+        .mobile-day-row {
+            display: grid;
+            grid-template-columns: 66px minmax(0, 1fr);
+            gap: 10px;
+            padding: 11px 12px;
+            border-bottom: 1px solid var(--border);
+            background: #fff;
+            cursor: pointer;
+        }
+
+        .mobile-day-row:last-child { border-bottom: 0; }
+        .mobile-day-row.today { background: #f0f6ff; }
+        .mobile-date { display: flex; flex-direction: column; align-items: center; gap: 3px; }
+        .mobile-date strong { font-size: 18px; line-height: 1.2; }
+        .mobile-date span { color: var(--muted); font-size: 11px; }
+        .mobile-day-row.today .mobile-date strong { color: var(--primary); }
+        .mobile-events { min-width: 0; display: flex; flex-direction: column; gap: 5px; }
+        .mobile-event {
+            display: block;
+            width: 100%;
+            padding: 7px 9px;
+            border-radius: 6px;
+            border-left: 4px solid;
+            font-size: 13px;
+            line-height: 1.35;
+            white-space: normal;
+            overflow-wrap: anywhere;
+            cursor: pointer;
+        }
+        .mobile-event .event-time { margin-right: 5px; }
+        .mobile-empty { color: #9ca3af; font-size: 12px; padding: 6px 2px; }
+        .mobile-add-hint { color: var(--primary); font-size: 11px; margin-top: 2px; }
+
         @media(max-width: 700px) {
             .app {
                 padding: 12px;
@@ -440,26 +474,11 @@
                 font-size: 18px;
             }
 
-            .day {
-                min-height: 90px;
-                padding: 4px;
-            }
-
-            .day-number {
-                width: 22px;
-                height: 22px;
-                font-size: 11px;
-            }
-
-            .event {
-                font-size: 9px;
-                padding: 3px;
-            }
-
-            .weekday {
-                font-size: 10px;
-                padding: 10px 2px;
-            }
+            .calendar-container { border-radius: 9px; }
+            .mobile-day-row { grid-template-columns: 56px minmax(0, 1fr); padding: 10px 9px; }
+            .mobile-date strong { font-size: 17px; }
+            .mobile-event { font-size: 13px; padding: 8px; }
+            .legend { gap: 10px 14px; font-size: 11px; }
 
             .form-row {
                 grid-template-columns: 1fr;
@@ -514,7 +533,7 @@
         </div>
         <div class="legend-item">
             <span class="legend-dot" style="background:#9333ea"></span>
-            Orphanage / Old age home
+            Orphanage
         </div>
         <div class="legend-item">
             <span class="legend-dot" style="background:#16a34a"></span>
@@ -579,9 +598,9 @@
             <div class="form-group">
                 <label for="eventCategory">Category</label>
                 <select id="eventCategory">
-                    <option value="work">School</option>
-                    <option value="meeting">Orphanage / Old Age Home</option>
-                    <option value="personal">Office</option>
+                    <option value="school">School</option>
+                    <option value="orphanage">Orphanage</option>
+                    <option value="office">Office</option>
                     <option value="other">Other</option>
                 </select>
             </div>
@@ -755,7 +774,21 @@
                 throw new Error("Calendar file must contain an event array.");
             }
 
-            events = data;
+            // Migrate older category values without losing existing events.
+            const categoryMigration = {
+                work: "school",
+                meeting: "orphanage",
+                personal: "office",
+                school: "school",
+                orphanage: "orphanage",
+                office: "office",
+                other: "other"
+            };
+
+            events = data.map(event => ({
+                ...event,
+                category: categoryMigration[event.category] || "other"
+            }));
 
             renderCalendar();
 
@@ -899,7 +932,64 @@
             .trim()
             .toLowerCase();
 
-        // Always display 6 weeks
+        // On phones, use a readable day-by-day month list so event names remain visible.
+        if (window.matchMedia("(max-width: 700px)").matches) {
+            for (let dayNumber = 1; dayNumber <= daysInMonth; dayNumber++) {
+                const cellDate = new Date(year, month, dayNumber);
+                const dateString = localDateString(cellDate);
+                const row = document.createElement("div");
+                row.className = "mobile-day-row";
+                if (dateString === today) row.classList.add("today");
+
+                const dateBlock = document.createElement("div");
+                dateBlock.className = "mobile-date";
+                dateBlock.innerHTML = `<strong>${dayNumber}</strong><span>${weekdays[cellDate.getDay()].slice(0, 3)}</span>`;
+                row.appendChild(dateBlock);
+
+                const eventBlock = document.createElement("div");
+                eventBlock.className = "mobile-events";
+
+                const dayEvents = sortEvents(events.filter(event => {
+                    const matchesDate = event.date === dateString;
+                    const matchesSearch = !search ||
+                        String(event.title || "").toLowerCase().includes(search) ||
+                        String(event.description || "").toLowerCase().includes(search);
+                    return matchesDate && matchesSearch;
+                }));
+
+                if (dayEvents.length) {
+                    dayEvents.forEach(event => {
+                        const eventElement = document.createElement("div");
+                        eventElement.className = `mobile-event event ${event.category || "other"}`;
+                        const time = event.startTime ? formatTime(event.startTime) : "";
+                        eventElement.innerHTML =
+                            (time ? `<span class="event-time">${escapeHTML(time)}</span>` : "") +
+                            escapeHTML(event.title);
+                        eventElement.title = event.title || "";
+                        eventElement.addEventListener("click", e => {
+                            e.stopPropagation();
+                            openEditModal(event.id);
+                        });
+                        eventBlock.appendChild(eventElement);
+                    });
+                } else {
+                    const empty = document.createElement("div");
+                    empty.className = "mobile-empty";
+                    empty.textContent = search ? "No matching events" : "No events";
+                    eventBlock.appendChild(empty);
+                }
+
+                row.appendChild(eventBlock);
+                row.addEventListener("click", () => {
+                    selectedDate = dateString;
+                    openAddModal(dateString);
+                });
+                grid.appendChild(row);
+            }
+            return;
+        }
+
+        // Desktop/tablet: traditional 6-week month grid
 
         for (let i = 0; i < 42; i++) {
 
@@ -1071,7 +1161,7 @@
         document.getElementById("eventDate").value =
             date || localDateString(new Date());
 
-        document.getElementById("eventCategory").value = "work";
+        document.getElementById("eventCategory").value = "school";
 
         document.getElementById("modalBackdrop").classList.add("show");
 
@@ -1285,6 +1375,9 @@
     /* =====================================================
        INITIALIZE
     ===================================================== */
+
+    // Re-render when switching between mobile and desktop layouts.
+    window.addEventListener("resize", renderCalendar);
 
     loadEvents();
 
