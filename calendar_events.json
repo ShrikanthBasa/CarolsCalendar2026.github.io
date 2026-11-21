@@ -5,6 +5,15 @@
     "date": "2026-12-08",
     "startTime": "07:00",
     "endTime": "21:00",
+    "category": "meeting",
+    "description": ""
+  },
+  {
+    "id": "316634b6-50a3-4528-8c6a-44638a268d0f",
+    "title": "Xavier's Borivali2",
+    "date": "2026-12-08",
+    "startTime": "09:00",
+    "endTime": "11:00",
     "category": "work",
     "description": ""
   }
