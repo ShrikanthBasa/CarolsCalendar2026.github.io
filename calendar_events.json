@@ -1,29 +1,101 @@
 [
   {
     "id": "fdead133-5051-41de-9b3d-175ab03606f1",
-    "title": "St. Xavier High School, Ratan Nagar, Borivali ",
-    "date": "2026-12-08",
+    "title": "St. Xavier High School, Ratan Nagar, Borivali",
+    "date": "2026-12-09",
     "startTime": "07:00",
-    "endTime": "21:00",
-    "category": "work",
-    "description": "https://maps.app.goo.gl/PWr91ZK6xhAUZS756"
+    "endTime": "08:30",
+    "category": "school",
+    "description": "Map: https://maps.app.goo.gl/PWr91ZK6xhAUZS756"
   },
   {
-    "id": "316634b6-50a3-4528-8c6a-44638a268d0f",
-    "title": "Xavier's Borivali2",
-    "date": "2026-12-08",
-    "startTime": "09:00",
-    "endTime": "11:00",
-    "category": "work",
-    "description": "hello"
+    "id": "fdead133-5051-41de-9b3d-175ab03606f2",
+    "title": "St. Lawrence School, Borivali West",
+    "date": "2026-12-10",
+    "startTime": "07:00",
+    "endTime": "08:00",
+    "category": "school",
+    "description": "Map: https://maps.app.goo.gl/W8UJ4TyhjcaMowyd6"
   },
   {
-    "id": "316634b6-50a3-4528-8c6a-44638a268d1",
-    "title": "Xavier's Borivali3",
-    "date": "2026-12-08",
-    "startTime": "11:00",
-    "endTime": "13:00",
-    "category": "work",
+    "id": "fdead133-5051-41de-9b3d-175ab03606f3",
+    "title": "Ryan Christian School, Borivali West ",
+    "date": "2026-12-10",
+    "startTime": "08:00",
+    "endTime": "09:00",
+    "category": "school",
+    "description": "Same campus with Lawrence, Map: https://maps.app.goo.gl/W8UJ4TyhjcaMowyd6"
+  },
+  {
+    "id": "fdead133-5051-41de-9b3d-175ab03606f4",
+    "title": "St. Lawrence School, Kandivali East",
+    "date": "2026-12-11",
+    "startTime": "07:00",
+    "endTime": "08:00",
+    "category": "school",
+    "description": "Map: https://maps.app.goo.gl/VeoaeJREhSACvFbNA"
+  },
+  {
+    "id": "fdead133-5051-41de-9b3d-175ab03606f6",
+    "title": "Ryan International, Kandivali East",
+    "date": "2026-12-11",
+    "startTime": "08:00",
+    "endTime": "09:00",
+    "category": "school",
+    "description": "Same campus as Lawrence Map: https://maps.app.goo.gl/VeoaeJREhSACvFbNA"
+  },
+  {
+    "id": "fdead133-5051-41de-9b3d-175ab03606f7",
+    "title": "Cambridge School, Kandivali East",
+    "date": "2026-12-14",
+    "startTime": "07:00",
+    "endTime": "08:00",
+    "category": "school",
+    "description": "Map: https://maps.app.goo.gl/nrc98HvmmFrEqUDV6"
+  },
+  {
+    "id": "fdead133-5051-41de-9b3d-175ab03606f9",
+    "title": "Ryan International School (ICSE), Malad West",
+    "date": "2026-12-15",
+    "startTime": "07:00",
+    "endTime": "08:30",
+    "category": "school",
+    "description": "https://maps.app.goo.gl/A1M5moGGv24iamJ98"
+  },
+  {
+    "id": "fdead133-5051-41de-9b3d-175ab03606f8",
+    "title": "Ryan International School (CBSE), Malad West",
+    "date": "2026-12-15",
+    "startTime": "08:30",
+    "endTime": "10:00",
+    "category": "school",
+    "description": "Map: https://maps.app.goo.gl/GPJdWWBEzzoFoBKz8"
+  },
+  {
+    "id": "fdead133-5051-41de-9b3d-175ab0360610",
+    "title": "Ryan International School (ICSE), Goregaon East",
+    "date": "2026-12-16",
+    "startTime": "07:00",
+    "endTime": "08:00",
+    "category": "school",
+    "description": "Map: https://maps.app.goo.gl/8DrjpShLi9sJQD9X7"
+  },
+  {
+    "id": "fdead133-5051-41de-9b3d-175ab0360611",
+    "title": "St. Xavier's High School, Goregaon East",
+    "date": "2026-12-16",
+    "startTime": "08:00",
+    "endTime": "09:00",
+    "category": "school",
+    "description": "Same campus as ICSE"
+  },
+  {
+    "id": "fdead133-5051-41de-9b3d-175ab0360612",
+    "title": "Fr. Agnel High School, Malad West",
+    "date": "2026-12-17",
+    "startTime": "07:00",
+    "endTime": "08:00",
+    "category": "school",
     "description": ""
   }
 ]
