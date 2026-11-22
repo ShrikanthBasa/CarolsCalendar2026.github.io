@@ -44,32 +44,56 @@
             padding: 24px;
         }
 
-        /* HEADER */
-
+        /* STICKY NAVBAR */
         .header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-bottom: 24px;
+            gap: 16px;
+            margin: -24px -24px 24px;
+            padding: 14px 24px;
+            background: rgba(255,255,255,.96);
+            border-bottom: 1px solid var(--border);
+            box-shadow: 0 2px 12px rgba(0,0,0,.05);
+            backdrop-filter: blur(10px);
         }
 
-        .header h1 {
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            min-width: 0;
+        }
+
+        .brand-logo {
+            width: 44px;
+            height: 44px;
+            flex: 0 0 44px;
+            display: block;
+        }
+
+        .brand-text h1 {
             margin: 0;
-            font-size: 27px;
+            font-size: 22px;
+            line-height: 1.2;
+            white-space: nowrap;
         }
 
-        .header p {
+        .brand-text p {
             color: var(--muted);
-            margin: 6px 0 0;
-            font-size: 13px;
+            margin: 4px 0 0;
+            font-size: 12px;
         }
 
         .header-actions {
             display: flex;
             gap: 9px;
             flex-wrap: wrap;
+            justify-content: flex-end;
+            flex-shrink: 0;
         }
 
         .btn {
@@ -452,9 +476,17 @@
                 padding: 12px;
             }
 
-            .header h1 {
-                font-size: 22px;
+            .header {
+                margin: -12px -12px 18px;
+                padding: 10px 12px;
+                gap: 8px;
             }
+            .brand { gap: 8px; }
+            .brand-logo { width: 36px; height: 36px; flex-basis: 36px; }
+            .brand-text h1 { font-size: 17px; }
+            
+            .header-actions { gap: 6px; }
+            .header-actions .btn { padding: 8px 10px; font-size: 12px; }
 
             .toolbar {
                 align-items: stretch;
@@ -503,7 +535,6 @@
                 gap: 0;
             }
         }
-
     </style>
 </head>
 
@@ -512,16 +543,59 @@
 <div class="app">
 
     <header class="header">
-        <div>
-            <h1>Carols Calendar 2026</h1>
-            <p>And he said unto them, Go ye into all the world, and preach the gospel to every creature. Mark 16:15</p>
-        </div>
+        <div class="brand">
+		  <svg class="brand-logo" viewBox="0 0 64 64" role="img" aria-label="Carols Calendar logo">
+			<defs>
+			  <!-- Festive Night Sky Background -->
+			  <linearGradient id="bgGradient" x1="0" y1="0" x2="1" y2="1">
+				<stop offset="0%" stop-color="#0f172a" />
+				<stop offset="100%" stop-color="#1e293b" />
+			  </linearGradient>
+			  <!-- Evergreen Tree Gradient -->
+			  <linearGradient id="treeGradient" x1="0" y1="0" x2="0" y2="1">
+				<stop offset="0%" stop-color="#22c55e" />
+				<stop offset="100%" stop-color="#15803d" />
+			  </linearGradient>
+			</defs>
+
+			<!-- Rounded App Icon Badge -->
+			<rect x="3" y="3" width="58" height="58" rx="16" fill="url(#bgGradient)" />
+
+			<!-- Subtle Snowflakes -->
+			<circle cx="15" cy="18" r="1.5" fill="#fff" opacity="0.6" />
+			<circle cx="49" cy="22" r="1.5" fill="#fff" opacity="0.6" />
+			<circle cx="13" cy="36" r="1" fill="#fff" opacity="0.4" />
+			<circle cx="51" cy="38" r="1" fill="#fff" opacity="0.4" />
+
+			<!-- Tree Trunk -->
+			<rect x="28" y="48" width="8" height="7" rx="1.5" fill="#92400e" />
+
+			<!-- Layered Christmas Tree -->
+			<path d="M32 14 L19 29 H25 L16 40 H23 L13 50 H51 L41 40 H48 L39 29 H45 Z" fill="url(#treeGradient)" />
+
+			<!-- Calendar Date Lines (Integrated inside the tree) -->
+			<path d="M27 26 h10 M24 35 h6 m4 0 h6 M21 44 h6 m4 0 h6" stroke="#dcfce7" stroke-width="2.5" stroke-linecap="round" opacity="0.85" />
+
+			<!-- Red & Gold Ornaments -->
+			<circle cx="24" cy="31" r="2" fill="#ef4444" />
+			<circle cx="41" cy="37" r="2" fill="#fbbf24" />
+			<circle cx="29" cy="41" r="2" fill="#ef4444" />
+			<circle cx="44" cy="46" r="2" fill="#ef4444" />
+
+			<!-- Top Golden Star -->
+			<path d="M32 6 l1.8 4.1 4.4.4-3.3 2.9 1 4.3-3.9-2.3-3.9 2.3 1-4.3-3.3-2.9 4.4-.4z" fill="#fbbf24" />
+		  </svg>
+
+		  <div class="brand-text">
+			<h1>Carols Calendar 2026</h1>
+			<p>Mat 28:19 · Go ... teach all nations</p>
+		  </div>
+		</div>
+
 
         <div class="header-actions">
             <button class="btn" onclick="goToday()">Today</button>
-            <button class="btn btn-primary" onclick="openAddModal()">
-                + Add Event
-            </button>
+            <button class="btn btn-primary" onclick="openAddModal()">+ Add Event</button>
         </div>
     </header>
 
