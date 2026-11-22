@@ -1,6 +1,12 @@
 /* Calendar configuration and application logic */
 const API_URL="https://calendar-api.shrikanthbasa33.workers.dev";
-let events=[],currentDate=new Date(),selectedDate=null,calendarPassword=null,isSaving=false;
+/* Open December 2026 if date less than 01 dec 2026 -- the months are from index 0 -> Dec = 11 */
+const today = new Date();
+const defaultDate = today < new Date(2026, 11, 1)
+    ? new Date(2026, 11, 1)
+    : today;
+
+let events=[],currentDate=defaultDate,selectedDate=null,calendarPassword=null,isSaving=false;
 const weekdays=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
 const monthNames=["January","February","March","April","May","June","July","August","September","October","November","December"];
 function localDateString(date){return `${date.getFullYear()}-${String(date.getMonth()+1).padStart(2,"0")}-${String(date.getDate()).padStart(2,"0")}`}
