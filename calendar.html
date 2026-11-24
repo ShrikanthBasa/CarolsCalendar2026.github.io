@@ -7,19 +7,18 @@
     <link rel="stylesheet" href="styles.css">
     <style>
         .blink {
-            animation: blinker 1s step-end 5;
+            animation: blinkFade 0.8s ease-in-out 3 forwards;
           }
         
-          @keyframes blinker {
+          @keyframes blinkFade {
+            0% {
+              opacity: 1;
+            }
             50% {
               opacity: 0;
             }
-          }
-        
-          /* Accessibility: stops blinking for users who prefer reduced motion */
-          @media (prefers-reduced-motion: reduce) {
-            .blink {
-              animation: none;
+            100% {
+              opacity: 0; /* Ends invisible so 'forwards' keeps it hidden */
             }
           }
     </style>
