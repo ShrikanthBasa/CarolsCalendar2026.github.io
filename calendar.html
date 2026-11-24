@@ -5,6 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carols Calendar 2026</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .blink {
+            animation: blinker 1s step-end infinite;
+          }
+        
+          @keyframes blinker {
+            50% {
+              opacity: 0;
+            }
+          }
+        
+          /* Accessibility: stops blinking for users who prefer reduced motion */
+          @media (prefers-reduced-motion: reduce) {
+            .blink {
+              animation: none;
+            }
+          }
+    </style>
 </head>
 <body>
 <div class="app">
@@ -52,7 +70,7 @@
         </div>
         <input type="search" id="searchInput" class="search-box" placeholder="Search events..."
                oninput="renderCalendar()"></section>
-    <h3>Click on event for more details</h3>
+    <h3 style="text-align: center; color: #2c8fe6" class="blink">Click on event for more details</h3>
     <div class="calendar-container">
         <div class="calendar-grid" id="calendarGrid"></div>
     </div>
