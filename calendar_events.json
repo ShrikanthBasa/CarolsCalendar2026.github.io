@@ -77,7 +77,7 @@
     "date": "2026-12-14",
     "startTime": "17:30",
     "endTime": "18:30",
-    "category": "old age home",
+    "category": "other",
     "description": "55 People"
   },
   {
@@ -122,8 +122,8 @@
     "date": "2026-12-15",
     "startTime": "16:00",
     "endTime": "17:00",
-    "category": "old age home",
-    "description": "Around 120 people"
+    "category": "other",
+    "description": "Around 120 people Map: https://maps.app.goo.gl/cetXV1fgQsuHPMHKA"
   },
   {
     "id": "fdead133-5051-41de-9b3d-175ab0360610",
@@ -176,7 +176,7 @@
     "date": "2026-12-17",
     "startTime": "17:00",
     "endTime": "18:00",
-    "category": "old age home",
+    "category": "other",
     "description": "20 elders. Map:https://maps.app.goo.gl/PC7aBCL2sbqDuAJp6"
   },
   {
@@ -185,7 +185,7 @@
     "date": "2026-12-17",
     "startTime": "18:00",
     "endTime": "19:00",
-    "category": "others",
+    "category": "other",
     "description": ""
   },
   {
@@ -194,7 +194,7 @@
     "date": "2026-12-19",
     "startTime": "16:30",
     "endTime": "17:30",
-    "category": "others",
+    "category": "other",
     "description": "100 people"
   }
 ]
