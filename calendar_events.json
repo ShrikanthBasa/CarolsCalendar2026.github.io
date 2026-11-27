@@ -45,6 +45,15 @@
     "description": "Same campus as Lawrence Map: https://maps.app.goo.gl/VeoaeJREhSACvFbNA"
   },
   {
+    "id": "abf0be69-07cb-4a53-be01-4450d584c618",
+    "title": "Mount Mary Girls Bandra",
+    "date": "2026-12-13",
+    "startTime": "14:30",
+    "endTime": "15:30",
+    "category": "school",
+    "description": "Around 100 People"
+  },
+  {
     "id": "fdead133-5051-41de-9b3d-175ab03606f7",
     "title": "Cambridge School, Kandivali East",
     "date": "2026-12-14",
@@ -52,6 +61,24 @@
     "endTime": "08:00",
     "category": "school",
     "description": "Map: https://maps.app.goo.gl/nrc98HvmmFrEqUDV6"
+  },
+  {
+    "id": "dc69d35f-a742-40b6-933a-3956cb9cea27",
+    "title": "Father Agnel Ashram, Bandra",
+    "date": "2026-12-14",
+    "startTime": "16:00",
+    "endTime": "17:00",
+    "category": "orphanage",
+    "description": "50 People"
+  },
+  {
+    "id": "3788bb3d-a6d4-401f-bd21-7b93011200b4",
+    "title": "St Anthony Old Age Home",
+    "date": "2026-12-14",
+    "startTime": "17:30",
+    "endTime": "18:30",
+    "category": "old age home",
+    "description": "55 People"
   },
   {
     "id": "fdead133-5051-41de-9b3d-175ab03606f9",
@@ -90,6 +117,15 @@
     "description": "5th Floor, Maker Maxity 2, BKC, Bandra\nMap: https://maps.app.goo.gl/MBcPFHKfWrtL88wA9"
   },
   {
+    "id": "7ec6b3be-ebe8-46b6-b233-baf8154a4f02",
+    "title": "Radhika Old Age Home, Uttan, Bhayandar",
+    "date": "2026-12-15",
+    "startTime": "16:00",
+    "endTime": "17:00",
+    "category": "old age home",
+    "description": "Around 120 people"
+  },
+  {
     "id": "fdead133-5051-41de-9b3d-175ab0360610",
     "title": "Ryan International School (ICSE), Goregaon East",
     "date": "2026-12-16",
@@ -108,6 +144,15 @@
     "description": "Same campus as ICSE"
   },
   {
+    "id": "98dbfb7c-df5a-4d1a-8b03-7f56d0dcad86",
+    "title": "Malad Marve Orphanage",
+    "date": "2026-12-16",
+    "startTime": "16:30",
+    "endTime": "17:30",
+    "category": "orphanage",
+    "description": ""
+  },
+  {
     "id": "ee929db1-0ee0-4246-b7ab-a6f1212039fb",
     "title": "Sneha Sagar Ashram",
     "date": "2026-12-16",
@@ -124,5 +169,32 @@
     "endTime": "08:00",
     "category": "school",
     "description": ""
+  },
+  {
+    "id": "47a80153-ddce-4f20-8d17-33a673c83070",
+    "title": "Vimaltidevi Old Age Home, Borivali",
+    "date": "2026-12-17",
+    "startTime": "17:00",
+    "endTime": "18:00",
+    "category": "old age home",
+    "description": "20 elders. Map:https://maps.app.goo.gl/PC7aBCL2sbqDuAJp6"
+  },
+  {
+    "id": "7308c3ff-fd84-4b6b-841f-be4259372897",
+    "title": "YMCA Sharan, Saki Naka",
+    "date": "2026-12-17",
+    "startTime": "18:00",
+    "endTime": "19:00",
+    "category": "others",
+    "description": ""
+  },
+  {
+    "id": "18bcb845-47d7-465b-aa10-9fe9a00fba66",
+    "title": "Vimla Dermatological Center, Yari Road",
+    "date": "2026-12-19",
+    "startTime": "16:30",
+    "endTime": "17:30",
+    "category": "others",
+    "description": "100 people"
   }
 ]
